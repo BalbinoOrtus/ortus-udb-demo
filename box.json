@@ -25,10 +25,12 @@
     },
     "installPaths":{
         "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "cbmessagebox":"modules/cbmessagebox/"
     },
     "dependencies":{
-        "coldbox":"^6.0.0"
+        "coldbox":"^6.0.0",
+        "cbmessagebox":"^4.0.0+58"
     },
     "scripts":{},
     "testbox":{
