@@ -32,6 +32,6 @@
     },
     "scripts":{},
     "testbox":{
-        "runner":"http://127.0.0.1:53163/tests/runner.cfm"
+        "runner":"http://127.0.0.1:64865/tests/runner.cfm"
     }
 }

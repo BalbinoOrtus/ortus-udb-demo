@@ -4,7 +4,7 @@ component extends="coldbox.system.EventHandler" {
 	 * Default Action
 	 */
 	function index( event, rc, prc ) {
-		prc.welcomeMessage = "Welcome to ColdBox!";
+		prc.todos = queryExecute("SELECT * FROM task;");
 		event.setView( "main/index" );
 	}
 
