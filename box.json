@@ -25,13 +25,15 @@
     },
     "installPaths":{
         "coldbox":"coldbox/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "cbmessagebox":"modules/cbmessagebox/"
     },
     "dependencies":{
-        "coldbox":"^6.0.0"
+        "coldbox":"^6.0.0",
+        "cbmessagebox":"^4.0.0+58"
     },
     "scripts":{},
     "testbox":{
-        "runner":"http://127.0.0.1:53163/tests/runner.cfm"
+        "runner":"http://127.0.0.1:64865/tests/runner.cfm"
     }
 }

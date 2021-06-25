@@ -53,6 +53,7 @@
 	</nav> <!---end navbar --->
 
 	<!---Container And Views --->
+	#cbmessagebox().renderIt()#
 	<div class="container">#renderView()#</div>
 
 	<footer class="border-top py-3 mt-5">

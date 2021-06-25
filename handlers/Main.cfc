@@ -1,12 +1,34 @@
 component extends="coldbox.system.EventHandler" {
 
+	property name="html" inject="HTMLHelper@coldbox";
 	/**
 	 * Default Action
 	 */
 	function index( event, rc, prc ) {
-		prc.welcomeMessage = "Welcome to ColdBox!";
+		html.addasset("/main/index.js")
+		prc.todos = queryExecute("SELECT * FROM task;");
 		event.setView( "main/index" );
 	}
+
+	function add( event, rc, prc ) {
+		if( isNull( rc.description ) ){
+			cbmessagebox().error( "there is no description" );
+			relocate( "main.index" );
+		}
+		queryExecute("INSERT INTO `todolistdb`.`task`(`id`,`description`) VALUES(?,?);", [0, rc.description]);
+		cbmessagebox().success( "new todo added" );
+		relocate( "main.index" );
+	}
+
+	function delete( event, rc, prc ) {
+		if( isNull( rc.id ) ){
+			cbmessagebox().error( "there is no id to delete" );
+			relocate( "main.index" );
+		}		
+		queryExecute("DELETE FROM `todolistdb`.`task` WHERE id=?;", [rc.id]);
+		cbmessagebox().success( "todo #encodeForHTML( rc.id )# has been deleted" );
+		relocate( "main.index" );
+	}	
 
 	/**
 	 * Produce some restfulf data
