@@ -17,6 +17,15 @@
 	<!---css --->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+		.app-container {
+		  height: 100vh;
+		  width: 100%;
+		}
+		.complete {
+		  text-decoration: line-through;
+		}
+	  </style>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" style="padding-top: 60px">
 	<!---Top NavBar --->
