@@ -5,18 +5,18 @@ component extends="coldbox.system.EventHandler" {
 	 * Default Action
 	 */
 	function index( event, rc, prc ) {
-		html.addasset("/main/index.js")
-		prc.todos = queryExecute("SELECT * FROM task;");
+		//html.addasset("/main/index.js")
+		prc.todoList = queryExecute("SELECT * FROM task;");
 		event.setView( "main/index" );
 	}
 
-	function add( event, rc, prc ) {
-		if( isNull( rc.description ) ){
-			cbmessagebox().error( "there is no description" );
+	function new( event, rc, prc ) {
+		if( isNull( rc.task ) ){
+			cbmessagebox().error( "there is no task" );
 			relocate( "main.index" );
 		}
-		queryExecute("INSERT INTO `todolistdb`.`task`(`id`,`description`) VALUES(?,?);", [0, rc.description]);
-		cbmessagebox().success( "new todo added" );
+		queryExecute("INSERT INTO `task`(`id`,`description`) VALUES(?,?);", [0, rc.task]);
+		cbmessagebox().success( "new task was added" );
 		relocate( "main.index" );
 	}
 

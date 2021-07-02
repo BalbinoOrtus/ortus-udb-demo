@@ -1,70 +1,36 @@
 <cfoutput>
-	<h1>todo list webapp</h1>
+	<h1>todo list</h1>
+	<p>this is my todo list</p>
 
-	<form action="/main/add" method="post">
-		<input type="text" name="description" width="100">
-		<input type="submit" value="Send">
-	</form>
-
-	<table>
-		<tr>
-			<th>Id</th>
-			<th>description</th>
-			<th>delete</th>
-		</tr>
-		<cfloop query="#prc.todos#">
-			<tr>
-				<td>#encodeForHTML( id )#</td>
-				<td>#encodeForHTML( description )#</td>
-				<td><a href="#event.buildLink( 'main.delete' )#/id/#encodeForURL( id )#" onclick="test();">delete</a></td>
-			</tr>
-		</cfloop>
-	</table>
-
-	<br><br>
-		<div class="container d-flex align-items-center justify-content-center flex-column">
-
-		<h3>Todo App</h3>
-		<div class="d-flex align-items-center mb-3">
-			<div class="form-group mr-3 mb-0">
-				<input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter a task here"/>
+	<div class="container">
+		<form action="#event.buildLink( 'main.new' )#" method="post">
+			<div class="form-group">
+				<label for="task">task:</label>
+				<input type="text" class="form-control" name="task" 
+					id="task" value="" placeholder="enter a task...">
 			</div>
-			<button type="button" class="btn btn-primary mr-3">Save</button>
-			<button type="button" class="btn btn-warning">Get Tasks</button>				
-		</div>
-
-		<div class="table-wrapper">
-			<table class="table table-hover table-bordered">
-				<thead>
+			<input type="submit" class="btn btn-success" value="Send">
+		</form>
+	</div>
+	<br>
+	<div class="container">
+		<table class="table table-dark table-hover">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>description</th>
+					<th>action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<cfloop query="#prc.todoList#">
 					<tr>
-						<th>No.</th>
-						<th>Todo item</th>
-						<th>status</th>
-						<th>Actions</th>
+						<td># encodeForHTML( id ) #</td>
+						<td># encodeForHTML( description ) #</td>
+						<td>delete</td>
 					</tr>
-				</thead>
-
-				<tbody>
-					<tr class="table-success">
-						<td>1</td>
-						<td>movies</td>
-						<td class="complete">Completed</td>
-						<td>
-							<button class="btn btn-danger">delete</button>
-							<button class="btn btn-success">finished</button>
-						</td>
-					</tr>
-					<tr class="table-light">
-						<td>2</td>
-						<td>dinner</td>
-						<td class="task">in progress</td>
-						<td>
-							<button class="btn btn-danger">delete</button>
-							<button class="btn btn-success">finished</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		</div>
+				</cfloop>
+			</tbody>
+		</table>
+	</div>
 </cfoutput>
