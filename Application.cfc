@@ -11,6 +11,7 @@ component {
 	this.sessionTimeout    = createTimespan( 0, 0, 30, 0 );
 	this.setClientCookies  = true;
 	this.datasource = "todolistds";
+	this.defaultdatasource = "todolistds";
 
 	// Java Integration
 	this.javaSettings = {

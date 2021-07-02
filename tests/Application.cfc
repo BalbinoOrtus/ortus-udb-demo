@@ -12,6 +12,8 @@ component{
 	this.sessionTimeout 	= createTimeSpan( 0, 0, 15, 0 );
 	this.applicationTimeout = createTimeSpan( 0, 0, 15, 0 );
 	this.setClientCookies 	= true;
+	this.datasource = "todolistds";
+	this.defaultdatasource = "todolistds";	
 
 	// Create testing mapping
 	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
