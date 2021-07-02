@@ -64,8 +64,20 @@ component
 					});
 				});
 			});
-			
+
 			/* story03: eliminar una tarea existente */
+			story("eliminar una tarea existente", function(){
+				given("una tarea valida", function(){
+					then("eliminar la tarea de la base de datos", function(){
+						var event = this.post("main.delete", {
+							"id": "1"
+						})
+						var query = queryExecute("select * from task where id=1;")
+						var array = valueArray(query, "id");
+						expect(array).toBeArray().toBeEmpty();
+					});
+				});
+			});
 
 		});
 	}

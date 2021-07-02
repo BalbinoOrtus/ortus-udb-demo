@@ -27,7 +27,12 @@
 					<tr>
 						<td># encodeForHTML( id ) #</td>
 						<td># encodeForHTML( description ) #</td>
-						<td>delete</td>
+						<td>
+							<form action="#event.buildLink('main.delete')#" method="post">
+								<input type="hidden" name="id" id="id" value="# encodeForHTML( id ) #">
+								<input type="submit" class="btn btn-danger" value="Delete">
+							</form>
+						</td>
 					</tr>
 				</cfloop>
 			</tbody>
