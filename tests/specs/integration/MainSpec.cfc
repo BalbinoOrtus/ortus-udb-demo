@@ -52,6 +52,18 @@ component
 			});
 
 			/* story02: ingresar una tarea nueva */
+			story("ingresar una tarea nueva", function(){
+				given("una tarea valida", function(){
+					then("agregamos la tarea a la base de datos", function(){
+						var event = this.post( "main.new", {
+							"task": "test01"
+						} );
+						var query= queryExecute("select * from task where description like 'test01';");
+						var array = valueArray(query, "description");
+						expect(array.first()).toInclude("test01");
+					});
+				});
+			});
 			
 			/* story03: eliminar una tarea existente */
 
